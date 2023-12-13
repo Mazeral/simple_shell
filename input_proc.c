@@ -2,14 +2,14 @@
 
 /**
  * input_proc - process the input of the user
- * @argv: The argument passed from the user
+ * @: The argument passed from the user
  * Return: The value of getline function
  */
 
 void input_proc(char *input, char **env)
 {
 	char *input_cpy = NULL, *input_cpy2 = NULL,
-	D[] = " \n",*token, **argv;
+	D[] = " \n", *token, **argv;
 	size_t token_cnt = 0, i = 0;
 
 	if (_strcmp(input, "\n") != 0 && input != NULL)
