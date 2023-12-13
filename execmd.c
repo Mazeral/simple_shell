@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * execmd - it does something
+ * execmd - it does something execute
  * @argv: the argv in the main
  * @env: The environment variables
  * return: nothing
