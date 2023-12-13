@@ -11,6 +11,12 @@
 #include<sys/types.h>
 #include<sys/wait.h>
 #include <stdarg.h>
+/**
+ * struct format - a struct for the stat function
+ * @ph: a string for the stat function
+ * @function: a pointer function for stat function
+ * Description: helps at finding the path for the exe file
+ */
 typedef struct format
 {
 	char *ph;
