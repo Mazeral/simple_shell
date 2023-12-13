@@ -8,12 +8,14 @@
 
 void input_proc(char *input, char **env)
 {
-	char *input_cpy = NULL, *input_cpy2 = _strdup(input),
+	char *input_cpy = NULL, *input_cpy2 = NULL,
 	D[] = " \n",*token, **argv;
 	size_t token_cnt = 0, i = 0;
 
-	input_cpy = malloc(_strlen(input) + 1);
-	_strcpy(input_cpy, input);
+	if (_strcmp(input, "\n") != 0 && input != NULL)
+	{
+	input_cpy2 = _strdup(input);
+	input_cpy = _strdup(input);
 	token = strtok(input_cpy2, D);
 	while (token != NULL)
 	{
@@ -29,4 +31,5 @@ void input_proc(char *input, char **env)
 	argv[i] = NULL;
 	free_args(2, input_cpy, input_cpy2);
 	execmd(argv, env);
+	}
 }

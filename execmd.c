@@ -35,7 +35,7 @@ void execmd(char **argv, char **env)
 			if (command != NULL)
 			{
 				actual_command = get_location(command);
-				if (_strcmp(command, "exit") == 0)
+				if (_strcmp(command, "exit") == 0 && actual_command != NULL)
 				{
 					free_args(2, command, actual_command);
 					return;

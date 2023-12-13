@@ -11,7 +11,7 @@ char *get_location(char *command)
 	struct stat buffer;
 
 	path = getenv("PATH");
-	if (path && command != NULL)
+	if (path && (command != NULL || _strcmp(command, "\n") != 0))
 	{
 		path_copy = _strdup(path);
 		command_length = _strlen(command);
@@ -40,7 +40,7 @@ char *get_location(char *command)
 			return (command);
 		}
 		return (NULL);
-	}
 	free_args(3, path, path_token, file_path);
+	}
 	return (NULL);
 }
