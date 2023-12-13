@@ -30,8 +30,6 @@ char **input_proc(char *input)
 		}
 		argv[i] = NULL;
 		free_args(2, input_cpy, input_cpy2);
-		for (i = 0; argv[i] != NULL; i++)
-			printf("%s\n", argv[i]);
 		return (argv);
 	}
 	return (NULL);
