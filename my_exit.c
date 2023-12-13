@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * my_exit - excutes system commands
+ * my_exit - excutes our system commands
  * @argv: The arguments
  * Return: Exit status
  */
