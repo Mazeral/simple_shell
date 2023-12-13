@@ -30,7 +30,7 @@ char *get_location(char *command)
 			}
 			else
 			{
-				free(file_path);
+				safe_free(file_path);
 				path_token = strtok(NULL, ":");
 			}
 		}
@@ -41,6 +41,6 @@ char *get_location(char *command)
 		}
 		return (NULL);
 	}
-	free_args(2, path_token, file_path);
+	free_args(3, path, path_token, file_path);
 	return (NULL);
 }

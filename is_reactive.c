@@ -1,16 +1,14 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
  * is_reactive - a function for the reactive response of the shell
  * @argc: The argument count
  * @env: The environment variables
  * Return: Nothing
  */
-int is_reactive(int argc, char **env)
+int is_reactive(char **env)
 {
-	int pid, status = 1, i = 0;
-	char **args = NULL, *input = NULL,
+	int pid, status = 0;
+	char *input = NULL,
 	*prompt = "cisfun$";
 	ssize_t getline_val;
 	size_t size = 0;
@@ -23,37 +21,29 @@ int is_reactive(int argc, char **env)
 		 */
 		_printf("%s ", prompt);
 		getline_val = getline(&input, &size, stdin);
-		if (getline_val == EOF)
+		if (getline_val == EOF || strcmp(input, "exit\n") == 0)
 		{
 			free(input);
-			return (getline_val);
+			input = NULL;
+			break;
 		}
-		pid = fork();
-		if (pid != 0 )
-			args = input_proc(input);
-		if (pid == 0)
+		else if (getline_val > -1)
 		{
-			args = input_proc(input);
-			if (args == NULL)
+			pid = fork();
+			if (pid == 0)
 			{
-				free(input);
-				free(args);
-				exit(EXIT_FAILURE);
+				if (_strcmp("env", input) == 0)
+				{
+					print_env(env);
+					break;
+				}
+				input_proc(input, env);
 			}
-			execmd(args, env);
-			free_arg(args);
-		}
-		else
-		{
-			waitpid(pid, &status, 0);
-			/* Sends the status to the main function to return it */
-			if (_strcmp(args[0], "exit") == 0)
+			else
 			{
-				break;
+				waitpid(pid, &status, 0);
 			}
 		}
-		free_arg(args);
 	}
-
 	return (status);
 }

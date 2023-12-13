@@ -15,7 +15,10 @@ void free_args(int count, ...)
 	{
 		arg = va_arg(args, char *);
 		if (arg != NULL)
-			free(arg);
+		{
+			safe_free(arg);
+			arg = NULL;
+		}
 	}
 
 	va_end(args);

@@ -10,27 +10,22 @@ void my_exit(char **argv)
 
 	if (argv[0][0] == '.')
 	{
-		_strcpy(tmp, argv[1]);
+		tmp = _strdup(argv[1]);
 		if (_strcmp("exit", tmp) == 0)
 		{
+			safe_free(tmp);
 			free_arg(argv);
 			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			free_arg(argv);
-			exit(EXIT_FAILURE);
 		}
 	}
-	if (argv[0] != NULL)
+	else if (argv[0] != NULL)
 	{
-		_strcpy(tmp, argv[0]);
+		tmp = _strdup(argv[1]);
 		if (_strcmp("exit", tmp) == 0)
 		{
+			safe_free(tmp);
 			free_arg(argv);
 			exit(EXIT_SUCCESS);
 		}
-		free_arg(argv);
-		exit(EXIT_FAILURE);
 	}
 }

@@ -10,15 +10,16 @@
 
 int main(int argc, char **argv, char **env)
 {
-	int status = 1;
+	int status = 0;
 
-	if (argc > 1)
+	
+	if (!isatty(STDIN_FILENO) || argc > 1)
 	{
 		not_reactive(argv, env);
 	}
 	else
 	{
-		status = is_reactive(argc, env);
+		status = is_reactive(env);
 	}
 	return (status);
 }

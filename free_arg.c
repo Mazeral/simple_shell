@@ -10,7 +10,14 @@ void free_arg(char **arg)
 {
 	int i = 0;
 
-	for (; arg[i] != NULL; i++)
-		free(arg[i]);
-	free(arg);
+	if (arg != NULL)
+	{
+		for (; arg[i] != NULL; i++)
+		{
+			safe_free(arg[i]);
+			arg[i] = NULL;
+		}
+		safe_free(arg);
+		arg = NULL;
+	}
 }

@@ -16,7 +16,8 @@ typedef struct format
 	char *ph;
 	int (*function)();
 } convert;
-int is_reactive(int ,char **);
+void safe_free(void *);
+int is_reactive(char **);
 void not_reactive(char **, char **);
 int _printf(const char * const format, ...);
 int _putchar(char c);
@@ -40,12 +41,12 @@ int print_unsigned(va_list args);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, const char *src);
 char *_strdup(char *str);
-char **input_proc(char *);
+void input_proc(char *, char **);
 int _strcmp(const char*, const char*);
 void execmd(char **argv, char**);
 char *get_location(char *command);
 void my_exit(char **);
-int print_env(char **);
+void print_env(char **);
 void free_arg(char **);
 void free_args(int count, ...);
 #endif
