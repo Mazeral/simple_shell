@@ -10,7 +10,7 @@
 #include<sys/stat.h>
 #include<sys/types.h>
 #include<sys/wait.h>
-#include <stdarg.h>
+#include<stdarg.h>
 typedef struct format
 {
 	char *ph;
@@ -49,4 +49,5 @@ void my_exit(char **);
 void print_env(char **);
 void free_arg(char **);
 void free_args(int count, ...);
+void remove_comment(char *);
 #endif
