@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_i - prints an integer
+ * print_i - prints integer
  * @args: argument to print
  * Return: integer
  */
