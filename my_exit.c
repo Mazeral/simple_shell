@@ -13,18 +13,24 @@ void my_exit(char **argv)
 		_strcpy(tmp, argv[1]);
 		if (_strcmp("exit", tmp) == 0)
 		{
+			free_arg(argv);
 			exit(EXIT_SUCCESS);
 		}
 		else
-		exit(EXIT_FAILURE);
+		{
+			free_arg(argv);
+			exit(EXIT_FAILURE);
+		}
 	}
 	if (argv[0] != NULL)
 	{
 		_strcpy(tmp, argv[0]);
 		if (_strcmp("exit", tmp) == 0)
 		{
+			free_arg(argv);
 			exit(EXIT_SUCCESS);
 		}
+		free_arg(argv);
 		exit(EXIT_FAILURE);
 	}
 }

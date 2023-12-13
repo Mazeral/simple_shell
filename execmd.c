@@ -20,7 +20,10 @@ void execmd(char **argv, char **env)
 			for (i = 0; argv[i] != NULL; i++)
 			{
 				if (_strcmp(command, "env") == 0)
+				{
 					print_env(env);
+					free_arg(argv);
+				}
 				else if (execve(command, argv + 1, NULL) == -1)
 				{
 					my_exit(argv);
@@ -35,7 +38,10 @@ void execmd(char **argv, char **env)
 		actual_command = get_location(command);
 		/* execute command with execve */
 		if (_strcmp(argv[0], "env") == 0)
+		{
 			print_env(env);
+			free_arg(argv);
+		}
 		else if (execve(actual_command, argv, env) == -1)
 		{
 			my_exit(argv);

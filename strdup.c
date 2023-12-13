@@ -6,13 +6,19 @@
  */
 char *_strdup(char *s1)
 {
-	char *str;
+	char *str, *dup;
 	size_t size = strlen(s1) + 1;
 
 	str = malloc(size);
 	if (str)
 	{
 		memcpy(str, s1, size);
+		dup = malloc(size);
+		if (dup)
+		{
+			memcpy(dup, str, size);
+		}
+		free(str);
 	}
-	return (str);
+	return (dup);
 }

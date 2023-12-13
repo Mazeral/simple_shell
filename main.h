@@ -40,7 +40,7 @@ int print_unsigned(va_list args);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, const char *src);
 char *_strdup(char *str);
-ssize_t input_proc(char ***);
+char **input_proc(char *);
 int _strcmp(const char*, const char*);
 void execmd(char **argv, char**);
 char *get_location(char *command);
