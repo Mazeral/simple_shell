@@ -7,8 +7,8 @@
 void remove_line(char **s)
 {
 	size_t i = 0, len = 0;
-	
-	while((*s)[i] != NULL)
+
+	while ((*s)[i] != NULL)
 	{
 		if ((*s)[i] == '\n')
 			(*s)[i] = '\0';

@@ -1,11 +1,12 @@
 #include "main.h"
 /**
- * remove_comments - a function that removes comments from bash.
- * @src: The source of the command
+ * remove_comment - a function that removes comments from bash.
+ * @str: The source of the command
  * Return: Nothing
  */
 
-void remove_comment(char **str) {
+void remove_comment(char **str)
+{
 	int i = 0, j = 0;
 
 	/* finding a comment,then skipping it */
@@ -13,7 +14,7 @@ void remove_comment(char **str) {
 	{
 		if ((*str)[i] == '#')
 		{
-			while ((*str)[i]!= '\n' && (*str)[i] != '\0')
+			while ((*str)[i] != '\n' && (*str)[i] != '\0')
 				i++;
 		}
 		else
