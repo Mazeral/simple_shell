@@ -2,7 +2,7 @@
 /**
  * remove_line - removes the lines in a string
  * @s: The string
- * Return: The string after it has been edited
+ * Return:to The string after it has been edited
  */
 void remove_line(char **s)
 {
