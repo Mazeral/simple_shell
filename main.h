@@ -16,6 +16,7 @@ typedef struct format
 	char *ph;
 	int (*function)();
 } convert;
+void process(char *input, char **args, char **env);
 void safe_free(void *);
 int is_reactive(char **);
 void not_reactive(char **, char **);

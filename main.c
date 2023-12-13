@@ -22,13 +22,13 @@ int main(int argc, char **argv, char **env)
 			getline_val = getline(&input, &size, stdin);
 			input_ready(input);
 			if (getline_val == EOF || _strcmp("exit", input) == 0)
-				break;
-			pid = fork();
-			if (pid == 0)
 			{
-				args = input_proc(input);
-				execmd(args, env);
+				safe_free(input);
+				break;
 			}
+			process(input, args, env);
+			waitpid(0, &status, 0);
+			status = WEXITSTATUS(status);
 		}
 		else
 		{
@@ -36,19 +36,12 @@ int main(int argc, char **argv, char **env)
 			getline(&input, &size, file);
 			fclose(file);
 			input_ready(input);
-			pid = fork();
-			if (pid == 0)
-			{
-				args = input_proc(input);
-				execmd(args, env);
-			}
-			waitpid(pid, &status, 0);
+			process(input, args, env);
+			waitpid(0, &status, 0);
 			status = WEXITSTATUS(status);
+			safe_free(input);
 			break;
 		}
-		waitpid(pid, &status, 0);
-		status = WEXITSTATUS(status);
 	}
-	safe_free(input);
 	return (status);
 }
