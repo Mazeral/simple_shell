@@ -6,7 +6,7 @@
  * Return: The value of getline function
  */
 
-void input_proc(char *input, char **env)
+char **input_proc(char *input)
 {
 	char *input_cpy = NULL, *input_cpy2 = NULL,
 	D[] = " \n",*token, **argv;
@@ -30,6 +30,7 @@ void input_proc(char *input, char **env)
 		}
 		argv[i] = NULL;
 		free_args(2, input_cpy, input_cpy2);
-		execmd(argv, env);
+		return (argv);
 	}
+	return (NULL);
 }

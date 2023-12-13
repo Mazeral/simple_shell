@@ -41,7 +41,7 @@ int print_unsigned(va_list args);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, const char *src);
 char *_strdup(char *str);
-void input_proc(char *, char **);
+char **input_proc(char *input);
 int _strcmp(const char*, const char*);
 void execmd(char **argv, char**);
 char *get_location(char *command);
@@ -49,5 +49,7 @@ void my_exit(char **);
 void print_env(char **);
 void free_arg(char **);
 void free_args(int count, ...);
-void remove_comment(char *);
+void remove_comment(char **);
+void remove_line(char **);
+void input_ready(char *);
 #endif

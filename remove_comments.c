@@ -5,21 +5,21 @@
  * Return: Nothing
  */
 
-void remove_comment(char *str) {
+void remove_comment(char **str) {
 	int i = 0, j = 0;
 
 	/* finding a comment,then skipping it */
-	while (str[i])
+	while ((*str)[i])
 	{
-		if (str[i] == '#')
+		if ((*str)[i] == '#')
 		{
-			while (str[i] != '\n' && str[i] != '\0')
+			while ((*str)[i]!= '\n' && (*str)[i] != '\0')
 				i++;
 		}
 		else
 		{
-			str[j++] = str[i++];
+			(*str)[j++] = (*str)[i++];
 		}
 	}
-	str[j] = '\0';
+	(*str)[j] = '\0';
 }

@@ -26,6 +26,8 @@ char *get_location(char *command)
 			_strcat(file_path, "\0");
 			if (stat(file_path, &buffer) == 0)
 			{
+				free(path_copy);
+				path_copy = NULL;
 				return (file_path);
 			}
 			else
@@ -36,11 +38,9 @@ char *get_location(char *command)
 		}
 		if (stat(command, &buffer) == 0)
 		{
-			free_args(3, file_path, path_copy, path_token);
 			return (command);
 		}
 		return (NULL);
-	free_args(3, path, path_token, file_path);
 	}
 	return (NULL);
 }
