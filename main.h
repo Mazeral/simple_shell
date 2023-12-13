@@ -10,18 +10,19 @@
 #include<sys/stat.h>
 #include<sys/types.h>
 #include<sys/wait.h>
-#include <stdarg.h>
+#include<stdarg.h>
 /**
  * struct format - a struct for the stat function
- * @ph: a string for the stat function
- * @function: a pointer function for stat function
- * Description: helps at finding the path for the exe file
+ * @ph: the name of the file
+ * @function: a function pointer for the info of the file
+ * Description: this struct will help us get the info of the existing exe files
  */
 typedef struct format
 {
 	char *ph;
 	int (*function)();
 } convert;
+void process(char *input, char **args, char **env);
 void safe_free(void *);
 int is_reactive(char **);
 void not_reactive(char **, char **);
@@ -47,7 +48,7 @@ int print_unsigned(va_list args);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, const char *src);
 char *_strdup(char *str);
-void input_proc(char *, char **);
+char **input_proc(char *input);
 int _strcmp(const char*, const char*);
 void execmd(char **argv, char**);
 char *get_location(char *command);
@@ -55,4 +56,7 @@ void my_exit(char **);
 void print_env(char **);
 void free_arg(char **);
 void free_args(int count, ...);
+void remove_comment(char **);
+void remove_line(char **);
+void input_ready(char *);
 #endif
