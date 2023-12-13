@@ -16,9 +16,10 @@ int main(int argc, char **argv, char **env)
 
 	while (getline_val != EOF)
 	{
-		if (isatty(STDIN_FILENO))
-		{
-			_printf("cisfun$ ");
+			if (isatty(STDIN_FILENO))
+			{
+				_printf("cisfun$ ");
+			}
 			getline_val = getline(&input, &size, stdin);
 			input_ready(input);
 			if (getline_val == EOF || _strcmp("exit", input) == 0)
@@ -29,19 +30,6 @@ int main(int argc, char **argv, char **env)
 			process(input, args, env);
 			waitpid(0, &status, 0);
 			status = WEXITSTATUS(status);
-		}
-		else
-		{
-			file = fopen(argv[1], "r");
-			getline(&input, &size, file);
-			fclose(file);
-			input_ready(input);
-			process(input, args, env);
-			waitpid(0, &status, 0);
-			status = WEXITSTATUS(status);
-			safe_free(input);
-			break;
-		}
 	}
 	return (status);
 }
