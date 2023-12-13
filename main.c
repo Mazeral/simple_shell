@@ -34,5 +34,8 @@ int main(int argc, char **argv, char **env)
 		if (!isatty(STDIN_FILENO))
 			break;
 	}
+	if (input != NULL)
+		free(input);
+	input = NULL;
 	return (status);
 }
