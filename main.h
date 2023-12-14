@@ -22,6 +22,7 @@ typedef struct format
 	char *ph;
 	int (*function)();
 } convert;
+int is_empty(const char *);
 void process(char *input, char **args, char **env);
 void safe_free(void *);
 int is_reactive(char **);

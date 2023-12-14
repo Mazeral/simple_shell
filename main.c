@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 #include <unistd.h>
 /**
  * main - enrty point
@@ -23,9 +24,11 @@ int main(int argc, char **argv, char **env)
 		}
 		getline_val = getline(&input, &size, stdin);
 		input_ready(input);
-		if (getline_val == EOF || _strcmp("exit", input) == 0)
+		if (getline_val == EOF || _strcmp("exit", input) == 0
+		|| is_empty(input))
 		{
-			safe_free(input);
+			free(input);
+			input = NULL;
 			break;
 		}
 		process(input, args, env);
