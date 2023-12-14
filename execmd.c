@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * execmd - it does something
- * @argv: the argv in the main
+ * @argv: the argv in main
  * @env: The environment variables
  * return: nothing
  */
