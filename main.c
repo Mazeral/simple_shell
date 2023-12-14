@@ -10,12 +10,13 @@
  */
 int main(int argc, char **argv, char **env)
 {
-	int status = 0, pid;
-	char *input = NULL, **args;
+	int status = 0;
+	char *input = NULL, **args = NULL;
 	ssize_t getline_val = 1;
 	size_t size = 0;
-	FILE *file;
 
+	(void)argc;
+	(void)argv;
 	while (getline_val != EOF)
 	{
 		if (isatty(STDIN_FILENO))
