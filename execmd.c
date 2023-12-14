@@ -7,12 +7,10 @@
  */
 void execmd(char **argv, char **env)
 {
-	int i;
 	char *command = NULL, *actual_command = NULL;
 
 	if (argv)
-	{
-		command = argv[0];
+	{ command = argv[0];
 		if (command != NULL)
 		{
 			actual_command = get_location(command);
