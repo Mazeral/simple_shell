@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_env - Print our current environment.
+ * print_env - Printcurrent environment.
  * @env: The environment variables
  * Return: Always returns 0.
  */
